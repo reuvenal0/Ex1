@@ -21,6 +21,14 @@ public class Ex1 {
         public static int number2Int(String num) {
             int ans = -1;
             // add your code here
+            if (isNumber (num))
+            {
+                // לקבל את המספר לפני הB
+                // לקבל את המספר אחרי הB ככה שנדע איזה BASE אנחנו מגיעים
+                // אם המספר כבר בבסיס 10 אז נגמר
+                //נמיר את המספר לבסיס 10 על ידי parseInt שעושה את
+                // להחזיר את המספר שהמרנו בINT
+            }
 
             ////////////////////
             return ans;
@@ -33,6 +41,7 @@ public class Ex1 {
         public static boolean isNumber(String a) {
             boolean ans = true;
             // add your code here
+            // נוודא שהמספר עומדת בדרישות שלנו
 
             ////////////////////
             return ans;
@@ -49,6 +58,9 @@ public class Ex1 {
         public static String int2Number(int num, int base) {
             String ans = "";
             // add your code here
+            // נקבל מספר INT בבסיס עשרוני (רגיל), ובסיס מבוקש
+            // נחזיר את ערך המספר בבסיס המבוקש.
+            // נשתמש בtoString
 
             ////////////////////
             return ans;
@@ -63,6 +75,7 @@ public class Ex1 {
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
             // add your code here
+            // לאיזה חלק זה נצרך??
 
             ////////////////////
             return ans;
