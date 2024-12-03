@@ -20,22 +20,14 @@ public class Ex1 {
          */
         public static int number2Int(String num) {
             int ans = -1;
-            // add your code here
             if (isNumber (num))
             {
-                // לקבל את המספר לפני הB
-                String [] b = a.split("b");
-                // לקבל את המספר אחרי הB ככה שנדע איזה BASE אנחנו מגיעים
-                // אם המספר כבר בבסיס 10 אז נגמר
-                //נמיר את המספר לבסיס 10 על ידי parseInt שעושה את
-                // להחזיר את המספר שהמרנו בINT
-                int a = Integer.parseInt("110",2);
+                // Number is in the valid format, so lets put the two numbers in an String array in two different loctains: 0 is the number, 1 is the base the number is in right now.
+                String [] str_Numbers = num.split("b");
 
-
-
+                int Old_base = Integer.parseInt(str_Numbers[1],10); // מותר??
+                ans = Integer.parseInt(str_Numbers[0],Old_base); // מותר?
             }
-
-            ////////////////////
             return ans;
         }
         /**
