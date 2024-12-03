@@ -53,20 +53,30 @@ public class Ex1 {
          * @return true iff the given String is in a number format
          */
         public static boolean isNumber(String a) {
-            boolean ans = true;
+            //boolean ans = true;
 
+            if (a.isEmpty()) return false;
+            if (How_Many_Times_Char_Int_Str(a, 'b') != 1) return false;
 
             String [] str_Numbers = a.split("b");
+            if (str_Numbers[0].isEmpty() || str_Numbers[1].isEmpty()) return false;
+
+            if (str_Numbers[1].length() != 1) return false;
+            char base = str_Numbers[1].charAt(0);
+            if (Character.isLowerCase(base)) return false;
+            if (Character.getNumericValue(base) > 2 || Character.getNumericValue(base) < 16) return false;
+
+
+            for (int i = 0; i < str_Numbers[])
+
+
+
 
 
             // add your code here
-            // נוודא שהמספר עומדת בדרישות שלנו
-            // פונקצית הבדיקה:
-            //
-            //*לוודא שהחלק השני הוא STR באורך אחד בלבד!!!
 
             ////////////////////
-            return ans;
+            return true;
         }
 
         /**
@@ -118,5 +128,16 @@ public class Ex1 {
 
             ////////////////////
             return ans;
+        }
+
+
+
+        public static int How_Many_Times_Char_Int_Str (String str, char c)
+        {
+            if (str.isEmpty()) return 0;
+
+            if (str.charAt(0) == c) return (How_Many_Times_Char_Int_Str(str.substring(1), c) + 1);
+
+            return (How_Many_Times_Char_Int_Str(str.substring(1), c));
         }
 }
