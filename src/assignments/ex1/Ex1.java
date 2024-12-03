@@ -32,6 +32,7 @@ public class Ex1 {
                 int a = Integer.parseInt("110",2);
 
 
+
             }
 
             ////////////////////
