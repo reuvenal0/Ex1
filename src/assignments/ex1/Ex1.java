@@ -55,19 +55,31 @@ public class Ex1 {
         public static boolean isNumber(String a) {
             //boolean ans = true;
 
-            if (a.isEmpty()) return false;
-            if (How_Many_Times_Char_Int_Str(a, 'b') != 1) return false;
+            //let's just wait:
+            // if (a.isEmpty()) return false;
 
+            // if we got an invalid char - let's use regular expression (regex):
+            if (!a.matches("^[bA-G0-9]+$")) return false;
+            // we got to have 'b':
+            if (How_Many_Times_Char_In_Str(a, 'b') != 1) return false;
+
+            // split the two numbers:
             String [] str_Numbers = a.split("b");
-            if (str_Numbers[0].isEmpty() || str_Numbers[1].isEmpty()) return false;
+            //if the number is empty
+            if (str_Numbers[0].isEmpty()) return false;
 
             if (str_Numbers[1].length() != 1) return false;
             char base = str_Numbers[1].charAt(0);
+            int base_value = Character.getNumericValue(base);
             if (Character.isLowerCase(base)) return false;
-            if (Character.getNumericValue(base) > 2 || Character.getNumericValue(base) < 16) return false;
+            if (base_value > 2 || base_value < 16) return false;
 
 
-            for (int i = 0; i < str_Numbers[])
+            for (int i = 0; i < str_Numbers[0].length(); i++)
+            {
+
+            }
+                // לראות שאין ספרה שגדולה ממספר הבסיס
 
 
 
@@ -131,13 +143,11 @@ public class Ex1 {
         }
 
 
-
-        public static int How_Many_Times_Char_Int_Str (String str, char c)
+        //עשינו בשיעור על רקורסיה - אחלה דבר לכותב את התקן של הפונקציה כמו שצריך
+        public static int How_Many_Times_Char_In_Str (String str, char c)
         {
-            if (str.isEmpty()) return 0;
+            if (str.charAt(0) == c) return (How_Many_Times_Char_In_Str(str.substring(1), c) + 1);
 
-            if (str.charAt(0) == c) return (How_Many_Times_Char_Int_Str(str.substring(1), c) + 1);
-
-            return (How_Many_Times_Char_Int_Str(str.substring(1), c));
+            return (How_Many_Times_Char_In_Str(str.substring(1), c));
         }
 }
