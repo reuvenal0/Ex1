@@ -18,15 +18,42 @@ public class Ex1 {
          * @param num a String representing a number in basis [2,16]
          * @return
          */
+
+//        public static int char2Int (char x) {
+//            if (Character.isDigit(x)) return
+//
+//        }
+
+        public static String reverse(String str){
+            String temp = "";
+            for (int i = 1; i <= str.length(); i++)
+            {
+                temp += str.charAt(str.length() - i);
+            }
+            return temp;
+        }
+
         public static int number2Int(String num) {
-            int ans = -1;
+            int ans = -1, value, power;
             if (isNumber (num))
             {
-                // Number is in the valid format, so lets put the two numbers in an String array in two different loctains: 0 is the number, 1 is the base the number is in right now.
+                // Number is in the valid format, let's split it:
                 String [] str_Numbers = num.split("b");
+                // get the old base into a valid int
+                // getNumericValue conver the char to int, encloding when the vualue is by laater (base 16)
+                int old_Base = Character.getNumericValue(str_Numbers[1].charAt(0));
 
-                int Old_base = Integer.parseInt(str_Numbers[1],10); // מותר??
-                ans = Integer.parseInt(str_Numbers[0],Old_base); // מותר?
+                str_Numbers[0] = reverse(str_Numbers[0]);
+                ans = 0;
+                char single;
+                for (int i = 0; i < str_Numbers[0].length(); i++)
+                {
+                    single = str_Numbers[0].charAt(i);
+                    value = Character.getNumericValue(single);
+                    power = (int) Math.pow (old_Base,i);
+
+                    ans += power*value;
+                }
             }
             return ans;
         }
@@ -37,6 +64,11 @@ public class Ex1 {
          */
         public static boolean isNumber(String a) {
             boolean ans = true;
+
+
+            String [] str_Numbers = a.split("b");
+
+
             // add your code here
             // נוודא שהמספר עומדת בדרישות שלנו
 
@@ -58,7 +90,7 @@ public class Ex1 {
             // נקבל מספר INT בבסיס עשרוני (רגיל), ובסיס מבוקש
             // נחזיר את ערך המספר בבסיס המבוקש.
             // נשתמש בtoString
-            String b = Integer.toString(a, 2);
+            //String b = Integer.toString(a, 2);
 
             ////////////////////
             return ans;

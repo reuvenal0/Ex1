@@ -36,6 +36,15 @@ public class Ex1Test {
         }
         @Test
         void int2NumberTest() {
+            //
+
+            String num = "FF15BbG"; // this is check num/
+
+            String [] str_Numbers = num.split("b");
+            int Old_base = Integer.parseInt(str_Numbers[1],17);
+            int ans = Integer.parseInt(str_Numbers[0],Old_base);
+
+            assertEquals(Ex1.number2Int(num), ans);
            // implement this test
         }
         @Test
