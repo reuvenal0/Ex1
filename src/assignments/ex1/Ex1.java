@@ -19,11 +19,6 @@ public class Ex1 {
          * @return
          */
 
-//        public static int char2Int (char x) {
-//            if (Character.isDigit(x)) return
-//
-//        }
-
         public static String reverse(String str){
             String temp = "";
             for (int i = 1; i <= str.length(); i++)
