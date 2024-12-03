@@ -55,13 +55,17 @@ public class Ex1 {
         public static boolean isNumber(String a) {
             //boolean ans = true;
 
+            // הבאג באותיות הקטנות/גדולות שהוא לא שם לב להבדל??
+
             //let's just wait:
-            // if (a.isEmpty()) return false;
+            //if (a.isEmpty()) return false;
 
             // if we got an invalid char - let's use regular expression (regex):
-            if (!a.matches("^[bA-G0-9]+$")) return false;
+            //if (!a.matches("^[bA-G0-9]+$")) return false;
             // we got to have 'b':
-            if (How_Many_Times_Char_In_Str(a, 'b') != 1) return false;
+            //if (How_Many_Times_Char_In_Str(a, 'b') < 1) return false;
+
+            if ((How_Many_Times_Char_In_Str(a, 'b') == 0) && (a.matches("^[0-9]+$"))) return true;
 
             // split the two numbers:
             String [] str_Numbers = a.split("b");
@@ -71,23 +75,13 @@ public class Ex1 {
             if (str_Numbers[1].length() != 1) return false;
             char base = str_Numbers[1].charAt(0);
             int base_value = Character.getNumericValue(base);
-            if (Character.isLowerCase(base)) return false;
             if (base_value > 2 || base_value < 16) return false;
 
 
             for (int i = 0; i < str_Numbers[0].length(); i++)
             {
-
+                if(Character.getNumericValue(str_Numbers[0].charAt(i)) >= base_value) return false;
             }
-                // לראות שאין ספרה שגדולה ממספר הבסיס
-
-
-
-
-
-            // add your code here
-
-            ////////////////////
             return true;
         }
 
@@ -146,6 +140,8 @@ public class Ex1 {
         //עשינו בשיעור על רקורסיה - אחלה דבר לכותב את התקן של הפונקציה כמו שצריך
         public static int How_Many_Times_Char_In_Str (String str, char c)
         {
+            if (str.isEmpty()) return 0;
+
             if (str.charAt(0) == c) return (How_Many_Times_Char_In_Str(str.substring(1), c) + 1);
 
             return (How_Many_Times_Char_In_Str(str.substring(1), c));
