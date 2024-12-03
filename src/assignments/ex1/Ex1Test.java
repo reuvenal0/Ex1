@@ -38,7 +38,7 @@ public class Ex1Test {
         void int2NumberTest() {
             //
 
-            String num = "FF15BbG"; // this is check num/
+            String num = "15678b9"; // this is check num/
 
             String [] str_Numbers = num.split("b");
             int Old_base = Integer.parseInt(str_Numbers[1],17);

@@ -19,15 +19,6 @@ public class Ex1 {
          * @return
          */
 
-        public static String reverse(String str){
-            String temp = "";
-            for (int i = 1; i <= str.length(); i++)
-            {
-                temp += str.charAt(str.length() - i);
-            }
-            return temp;
-        }
-
         public static int number2Int(String num) {
             int ans = -1, value, power;
             if (isNumber (num))
@@ -38,13 +29,17 @@ public class Ex1 {
                 // getNumericValue conver the char to int, encloding when the vualue is by laater (base 16)
                 int old_Base = Character.getNumericValue(str_Numbers[1].charAt(0));
 
-                str_Numbers[0] = reverse(str_Numbers[0]);
-                ans = 0;
-                char single;
-                for (int i = 0; i < str_Numbers[0].length(); i++)
+                // Lets revers the string:
+                String str_value_reverse = "";
+                for (int i = 1; i <= str_Numbers[0].length(); i++)
                 {
-                    single = str_Numbers[0].charAt(i);
-                    value = Character.getNumericValue(single);
+                    str_value_reverse += str_Numbers[0].charAt(str_Numbers[0].length() - i);
+                }
+
+                ans = 0;
+                for (int i = 0; i <  str_value_reverse.length(); i++)
+                {
+                    value = Character.getNumericValue(str_value_reverse.charAt(i));
                     power = (int) Math.pow (old_Base,i);
 
                     ans += power*value;
