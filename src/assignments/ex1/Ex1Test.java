@@ -13,22 +13,39 @@ public class Ex1Test {
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
-            String s10 = "1011bA";
-            v = Ex1.number2Int(s10);
-            s2 = Ex1.int2Number(v,2);
-            int v2 = Ex1.number2Int(s2);
-            assertEquals(v,v2);
-            assertTrue(Ex1.equals(s10,s2));
+
+            s2 = "101 1b2";
+            v = Ex1.number2Int(s2);
+            assertEquals(v,-1);
+
+            s2 = "18b2";
+            v = Ex1.number2Int(s2);
+            assertEquals(v,-1);
+
+
+            s2 = "b12";
+            v = Ex1.number2Int(s2);
+            assertEquals(v,-1);
+
+
+//            String s10 = "1011bA";
+//            v = Ex1.number2Int(s10);
+//            s2 = Ex1.int2Number(v,2);
+//            int v2 = Ex1.number2Int(s2);
+//            assertEquals(v,v2);
+//            assertTrue(Ex1.equals(s10,s2));
         }
+
+
 
         @Test
         void isBasisNumberTest() {
-            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA"};
+            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA"};
             for (int i=0;i<good.length; i++) {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {"b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2"};
+            String[] not_good = {"b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);

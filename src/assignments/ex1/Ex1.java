@@ -21,13 +21,15 @@ public class Ex1 {
 
         public static int number2Int(String num) {
             int ans = -1, value, power;
-            if (isNumber (num))
+            if (isNumber(num))
             {
                 // Number is in the valid format, let's split it:
                 String [] str_Numbers = num.split("b");
+                //System.out.println(str_Numbers[0] + " break " + str_Numbers[1]);
                 // get the old base into a valid int
                 // getNumericValue conver the char to int, encloding when the vualue is by laater (base 16)
-                int old_Base = Character.getNumericValue(str_Numbers[1].charAt(0));
+                char x = str_Numbers[1].charAt(0);
+                int old_Base = Character.getNumericValue(x);
 
                 // Lets revers the string:
                 String str_value_reverse = "";
