@@ -20,16 +20,15 @@ public class Ex1 {
          */
 
         public static int number2Int(String num) {
-            int ans = -1, value, power;
+            int ans = -1;
             if (isNumber(num))
             {
                 // Number is in the valid format, let's split it:
                 String [] str_Numbers = num.split("b");
-                //System.out.println(str_Numbers[0] + " break " + str_Numbers[1]);
                 // get the old base into a valid int
                 // getNumericValue conver the char to int, encloding when the vualue is by laater (base 16)
                 char x = str_Numbers[1].charAt(0);
-                int old_Base = Character.getNumericValue(x);
+                int value, power, old_Base = Character.getNumericValue(x);
 
                 // Lets revers the string:
                 String str_value_reverse = "";
@@ -55,21 +54,19 @@ public class Ex1 {
          * @return true iff the given String is in a number format
          */
         public static boolean isNumber(String a) {
-            //boolean ans = true;
-
-            //let's just wait:
+            //string a == null is not valid:
             if (a.isEmpty()) return false;
 
-            // if we got an invalid char - let's use regular expression (regex):
-
-            // we got to have 'b':
+            // first let's see if we got a 'b' char in String:
             int howb = How_Many_Times_Char_In_Str(a, 'b');
 
-            if (howb == 0) {
-                if (a.matches("^[0-9]+$")) return true;
-            }
+            // if there is no 'b' but the string is only  0-9 digit (without invalid chars) so we are in base 10 and it's all got
+            if ((howb == 0) && (a.matches("^[0-9]+$"))) return true;
 
+            // if we got an invalid char - let's use regular expression (regex):
             if (!a.matches("^[bA-G0-9]+$")) return false;
+
+            // more then one 'b' is not good:
             if (howb < 1) return false;
 
 
