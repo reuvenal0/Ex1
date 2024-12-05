@@ -20,27 +20,41 @@ public class Ex1 {
          */
 
         public static int number2Int(String num) {
+            // Set default as -1, in case of invalid string num
             int ans = -1;
+
             if (isNumber(num))
             {
+                ans = 0;
+                int value, power;
+                char temp_char;
+                //להוריד רווחים מההתחלה והסוף!!!
+
+                // First let's see if we are reciving a valid number in decmal base, witout 'b'
+                if (How_Many_Times_Char_In_Str(num, 'b') == 0)
+                {
+                    for (int i = 0; i < num.length(); i++)
+                    {
+                        temp_char = num.charAt(num.length() - i -1);
+                        value = Character.getNumericValue(temp_char);
+                        power = (int) Math.pow (10,i);
+
+                        ans += value*power;
+                    }
+                    return ans;
+                }
+
                 // Number is in the valid format, let's split it:
                 String [] str_Numbers = num.split("b");
                 // get the old base into a valid int
                 // getNumericValue conver the char to int, encloding when the vualue is by laater (base 16)
-                char x = str_Numbers[1].charAt(0);
-                int value, power, old_Base = Character.getNumericValue(x);
+                temp_char = str_Numbers[1].charAt(0);
+                int old_Base = Character.getNumericValue(temp_char);
 
-                // Lets revers the string:
-                String str_value_reverse = "";
-                for (int i = 1; i <= str_Numbers[0].length(); i++)
+                for (int i = 0; i <  str_Numbers[0].length(); i++)
                 {
-                    str_value_reverse += str_Numbers[0].charAt(str_Numbers[0].length() - i);
-                }
-
-                ans = 0;
-                for (int i = 0; i <  str_value_reverse.length(); i++)
-                {
-                    value = Character.getNumericValue(str_value_reverse.charAt(i));
+                    temp_char = str_Numbers[0].charAt(str_Numbers[0].length() -i-1);
+                    value = Character.getNumericValue(temp_char);
                     power = (int) Math.pow (old_Base,i);
 
                     ans += power*value;
@@ -69,17 +83,16 @@ public class Ex1 {
             // more then one 'b' is not good:
             if (howb < 1) return false;
 
-
             // split the two numbers:
             String [] str_Numbers = a.split("b");
             //if the number is empty
             if (str_Numbers[0].isEmpty()) return false;
 
             if (str_Numbers[1].length() != 1) return false;
+
             char base = str_Numbers[1].charAt(0);
             int base_value = Character.getNumericValue(base);
             if (base_value < 2 || base_value > 16) return false;
-
 
             for (int i = 0; i < str_Numbers[0].length(); i++)
             {
@@ -115,12 +128,18 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
-            boolean ans = true;
-            // add your code here
-            // לאיזה חלק זה נצרך??
+            //making sure that n1,n2 are in valid format
+            if (isNumber(n1) && isNumber(n2))
+            {
+                //convert the numbers to decimal value - int
+                int FirstNum = number2Int(n1);
+                int SecendNum = number2Int(n2);
 
-            ////////////////////
-            return ans;
+                // if the numbers are in the same decimal value - return true
+                if (FirstNum == SecendNum) return true;
+            }
+            // in case of not equal value or invalid num format - return false
+            return false;
         }
 
         /**
@@ -132,10 +151,13 @@ public class Ex1 {
          *
          */
         public static int maxIndex(String[] arr) {
-            int ans = 0;
-            // add your code here
+            int ans = 0 ,TempNum;
 
-            ////////////////////
+            for (int i = 0; i < arr.length; i++)
+            {
+                TempNum = number2Int(arr[i]);
+                if (ans < TempNum) ans = TempNum;
+            }
             return ans;
         }
 

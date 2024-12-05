@@ -14,9 +14,13 @@ public class Ex1Test {
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
 
-            s2 = "101 1b2";
+            s2 = "0b2";
             v = Ex1.number2Int(s2);
-            assertEquals(v,-1);
+            assertEquals(v,0);
+
+            s2 = "1011b2";
+            v = Ex1.number2Int(s2);
+            assertEquals(v,11);
 
             s2 = "18b2";
             v = Ex1.number2Int(s2);
@@ -66,7 +70,29 @@ public class Ex1Test {
         }
         @Test
         void maxIndexTest() {
-            // implement this test
+            String[] NumArr = {"1","123b6", "ABbG", "0bA", "1011b2", "1011bA"};
+            for (int i=0;i<NumArr.length; i++) {
+                int max = Ex1.maxIndex(NumArr);
+                assertEquals(max, 1011);
+            }
+        }
+
+
+        @Test
+        void isEqualsTest() {
+            String[] NumArr = {"404", "110010100b2", "404bA", "194bG", "1512b6", "251bD"};
+            for (int i=0;i<NumArr.length; i++) {
+                boolean ok = Ex1.equals(NumArr[i], "404");
+                assertTrue(ok);
+            }
+
+            NumArr = new String[]{"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2"};
+            for (int i=0;i<NumArr.length; i++) {
+                boolean ok = Ex1.equals(NumArr[i], "404");
+                assertFalse(ok);
+            }
+
+
         }
 
         // Add additional test functions - test as much as you can.
