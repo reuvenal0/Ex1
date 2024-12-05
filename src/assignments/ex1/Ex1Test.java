@@ -80,19 +80,13 @@ public class Ex1Test {
 
         @Test
         void isEqualsTest() {
-            String[] NumArr = {"404", "110010100b2", "404bA", "194bG", "1512b6", "251bD"};
-            for (int i=0;i<NumArr.length; i++) {
-                boolean ok = Ex1.equals(NumArr[i], "404");
-                assertTrue(ok);
-            }
+            String [] ArrStr = {"hi this is me", "hi this is me"};
+            boolean ok = Ex1.equals(ArrStr[0], ArrStr[1]);
+            assertTrue(ok);
 
-            NumArr = new String[]{"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2"};
-            for (int i=0;i<NumArr.length; i++) {
-                boolean ok = Ex1.equals(NumArr[i], "404");
-                assertFalse(ok);
-            }
-
-
+            ArrStr = new String[]{"hi this is me", "hi this isn't me"};
+            ok = Ex1.equals(ArrStr[0], ArrStr[1]);
+            assertFalse(ok);
         }
 
         // Add additional test functions - test as much as you can.

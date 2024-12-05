@@ -115,9 +115,9 @@ public class Ex1 {
             // נקבל מספר INT בבסיס עשרוני (רגיל), ובסיס מבוקש
             // נחזיר את ערך המספר בבסיס המבוקש.
             // נשתמש בtoString
-            //String b = Integer.toString(a, 2);
 
-            ////////////////////
+            ans = Integer.toString(num, base);
+
             return ans;
         }
 
@@ -128,18 +128,12 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
-            //making sure that n1,n2 are in valid format
-            if (isNumber(n1) && isNumber(n2))
+            if (n1.length() != n2.length()) return false;
+            for (int i =0; i <n1.length(); i++)
             {
-                //convert the numbers to decimal value - int
-                int FirstNum = number2Int(n1);
-                int SecendNum = number2Int(n2);
-
-                // if the numbers are in the same decimal value - return true
-                if (FirstNum == SecendNum) return true;
+                    if (n1.charAt(i) != n2.charAt(i)) return false;
             }
-            // in case of not equal value or invalid num format - return false
-            return false;
+            return true;
         }
 
         /**
