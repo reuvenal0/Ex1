@@ -70,6 +70,7 @@ public class Ex1Test {
             int Old_base = Integer.parseInt(str_Numbers[1],17);
             int ans = Integer.parseInt(str_Numbers[0],Old_base);
 
+
             assertEquals(Ex1.number2Int(num), ans);
            // implement this test
         }
