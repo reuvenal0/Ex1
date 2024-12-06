@@ -11,7 +11,9 @@ import java.util.Arrays;
 public class Ex1Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         String num1 = "", num2="", quit = "quit";
+
         while (!num1.equals(quit) && !num2.equals(quit)) {
             System.out.println();
             System.out.println("Ex1 class solution:");
@@ -31,12 +33,12 @@ public class Ex1Main {
                     boolean validNum2 = Ex1.isNumber(num2);
                     int num2_value = Ex1.number2Int(num2);
 
+                    System.out.println("num2= " + num2 + " is number: "+ validNum2 + " , value: " + num2_value);
+
                     if (!validNum2) {
-                        System.out.println("ERR: num2 is in the wrong format! " + num2);
+                        System.out.println("ERR: num2 is in the wrong format! (" + num2+ ")");
                         continue;
                     }
-
-                    System.out.println("num2= " + num2 + " is number: "+ validNum2 + " , value: " + num2_value);
 
                     System.out.println("Enter a base for output: (a number [2,16]");
                     int new_Base = sc.nextInt();
@@ -58,6 +60,8 @@ public class Ex1Main {
                     String [] allNumbersArr = {num1, num2, sum_result, mul_result};
                     int maxValueIndex = Ex1.maxIndex(allNumbersArr);
                     System.out.println("Max number over " + Arrays.toString(allNumbersArr) + " is: " + allNumbersArr[maxValueIndex]);
+                } else if (!validNum1) {
+                    System.out.println("ERR: num1 is in the wrong format! (" + num1+ ")");
                 }
             }
         }

@@ -116,10 +116,7 @@ public class Ex1 {
          */
         public static String int2Number(int num, int base) {
             // add your code here
-            // נקבל מספר INT בבסיס עשרוני (רגיל), ובסיס מבוקש
-            // נחזיר את ערך המספר בבסיס המבוקש.
             // נשתמש בtoString
-
             String ans = "";
             if ((num >= 0) && (base > 1) && (base < 17))
             {
@@ -128,9 +125,7 @@ public class Ex1 {
                 {
                     ans += "b" + toUpperCase(Character.forDigit(base,17));
                 }
-
             }
-
             return ans;
         }
 
@@ -180,7 +175,6 @@ public class Ex1 {
             }
             return ans;
         }
-
 
         //עשינו בשיעור על רקורסיה - אחלה דבר לכותב את התקן של הפונקציה כמו שצריך
         public static int How_Many_Times_Char_In_Str (String str, char c)
