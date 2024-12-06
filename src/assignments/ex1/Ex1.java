@@ -110,13 +110,17 @@ public class Ex1 {
          * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
          */
         public static String int2Number(int num, int base) {
-            String ans = "";
             // add your code here
             // נקבל מספר INT בבסיס עשרוני (רגיל), ובסיס מבוקש
             // נחזיר את ערך המספר בבסיס המבוקש.
             // נשתמש בtoString
 
-            ans = Integer.toString(num, base);
+            String ans = "";
+            if ((num >= 0) && (base > 1) && (base < 17))
+            {
+                ans = Integer.toString(num, base);
+                ans += "b" + Integer.toString(num, 16);
+            }
 
             return ans;
         }
