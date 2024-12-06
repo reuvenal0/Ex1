@@ -1,5 +1,7 @@
 package assignments.ex1;
+import java.sql.Array;
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * Intro2CS, Ex1 - very basic "main template"
@@ -55,7 +57,7 @@ public class Ex1Main {
 
                     String [] allNumbersArr = {num1, num2, sum_result, mul_result};
                     int maxValueIndex = Ex1.maxIndex(allNumbersArr);
-                    System.out.println("Max number over " + num1 + " " + num2 + " " + sum_result + " " +  mul_result + " is: " + allNumbersArr[maxValueIndex]);
+                    System.out.println("Max number over " + Arrays.toString(allNumbersArr) + " is: " + allNumbersArr[maxValueIndex]);
                 }
             }
         }

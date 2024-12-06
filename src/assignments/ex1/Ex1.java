@@ -88,8 +88,10 @@ public class Ex1 {
 
             // split the two numbers:
             String [] str_Numbers = a.split("b");
+            if (str_Numbers.length != 2) return false;
             //if the number is empty
             if (str_Numbers[0].isEmpty()) return false;
+
 
             if (str_Numbers[1].length() != 1) return false;
 
@@ -121,10 +123,12 @@ public class Ex1 {
             String ans = "";
             if ((num >= 0) && (base > 1) && (base < 17))
             {
-                ans = Integer.toString(num, base);
-                if (base != 10){
-                ans += "b" + toUpperCase(Character.forDigit(base,16));
+                ans = Integer.toString(num, base).toUpperCase();
+                if (base != 10)
+                {
+                    ans += "b" + toUpperCase(Character.forDigit(base,17));
                 }
+
             }
 
             return ans;
@@ -165,11 +169,14 @@ public class Ex1 {
          *
          */
         public static int maxIndex(String[] arr) {
-            int ans = 0 ,TempNum;
+            int ans = 0;
 
-            for (int i = 0; i < arr.length; i++)
+            for (int i = 1; i < arr.length; i++)
             {
-                if (ans < number2Int(arr[i])) ans = i;
+                if (number2Int(arr[ans]) < number2Int(arr[i]))
+                {
+                    ans = i;
+                }
             }
             return ans;
         }
