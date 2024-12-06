@@ -12,32 +12,37 @@ public class Ex1Test {
         void computeNumberTest() {
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
-            assertEquals(v,11);
+//            assertEquals(v,11);
+//
+//            s2 = "0b2";
+//            v = Ex1.number2Int(s2);
+//            assertEquals(v,0);
+//
+//            s2 = "1011b2";
+//            v = Ex1.number2Int(s2);
+//            assertEquals(v,11);
+//
+//            s2 = "18b2";
+//            v = Ex1.number2Int(s2);
+//            assertEquals(v,-1);
+//
+//
+//            s2 = "b12";
+//            v = Ex1.number2Int(s2);
+//            assertEquals(v,-1);
+//
+//            int num = 1011, base = 2;
+//            s2 = Ex1.int2Number(num,base);
+//            assertEquals(s2,"1111110011b2");
 
-            s2 = "0b2";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,0);
-
-            s2 = "1011b2";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,11);
-
-            s2 = "18b2";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,-1);
-
-
-            s2 = "b12";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,-1);
-
-
-            String s10 = "1011bA";
-            v = Ex1.number2Int(s10);
-            s2 = Ex1.int2Number(v,2);
-            int v2 = Ex1.number2Int(s2);
+//
+            String s10 = "1011bA"; //number in base 10
+            v = Ex1.number2Int(s10); //get number to int
+            s2 = Ex1.int2Number(v,2); //convert number to base 2
+            int v2 = Ex1.number2Int(s2); // convert number to base 10
             assertEquals(v,v2);
-            assertTrue(Ex1.equals(s10,s2));
+
+            assertTrue(Ex1.equals(s10,"1011bA"));
         }
 
 

@@ -1,4 +1,7 @@
 package assignments.ex1;
+
+import static java.lang.Character.toUpperCase;
+
 /**
  * This class represents a simple solution for Ex1.
  * As defined here: https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit
@@ -119,7 +122,7 @@ public class Ex1 {
             if ((num >= 0) && (base > 1) && (base < 17))
             {
                 ans = Integer.toString(num, base);
-                ans += "b" + Integer.toString(num, 16);
+                ans += "b" + toUpperCase(Character.forDigit(base,16));
             }
 
             return ans;
@@ -132,12 +135,23 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
-            if (n1.length() != n2.length()) return false;
-            for (int i =0; i <n1.length(); i++)
-            {
-                    if (n1.charAt(i) != n2.charAt(i)) return false;
+            //quit check
+//            if (n1.equals("quit"))
+//            {
+//                for (int i =0; i <n1.length(); i++)
+//                {
+//                    // if the numbers are in the same decimal value - return true
+//                    if (n1.charAt(i) != n2.charAt(i)) return false;
+//                }
+//            }
+
+            //making sure that n1,n2 are in valid format
+            if (isNumber(n1) && isNumber(n2)) {
+                //convert the numbers to decimal value (int) and then check if the value is equal
+                if (number2Int(n1) == number2Int(n2)) return true;
             }
-            return true;
+            // in case of not equal value or invalid num format - return false
+            return false;
         }
 
         /**
