@@ -122,7 +122,9 @@ public class Ex1 {
             if ((num >= 0) && (base > 1) && (base < 17))
             {
                 ans = Integer.toString(num, base);
+                if (base != 10){
                 ans += "b" + toUpperCase(Character.forDigit(base,16));
+                }
             }
 
             return ans;
@@ -167,8 +169,7 @@ public class Ex1 {
 
             for (int i = 0; i < arr.length; i++)
             {
-                TempNum = number2Int(arr[i]);
-                if (ans < TempNum) ans = TempNum;
+                if (ans < number2Int(arr[i])) ans = i;
             }
             return ans;
         }
