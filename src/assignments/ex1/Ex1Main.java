@@ -60,7 +60,9 @@ public class Ex1Main {
                     String [] allNumbersArr = {num1, num2, sum_result, mul_result};
                     int maxValueIndex = Ex1.maxIndex(allNumbersArr);
                     System.out.println("Max number over " + Arrays.toString(allNumbersArr) + " is: " + allNumbersArr[maxValueIndex]);
-                } else if (!validNum1) {
+                }
+                else if (!validNum1)
+                {
                     System.out.println("ERR: num1 is in the wrong format! (" + num1+ ")");
                 }
             }
