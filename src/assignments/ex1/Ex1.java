@@ -19,7 +19,7 @@ public class Ex1 {
          * Convert the given number (num) to a decimal representation (as int).
          * If the given number is not in a valid format returns -1.
          * @param num a String representing a number in basis [2,16]
-         * @return
+         * @return The number in decimal base - in an int variable.
          */
         public static int number2Int(String num) {
             // Set default as -1, in case of invalid string num
@@ -31,7 +31,6 @@ public class Ex1 {
                 ans = 0; // number is valid, so min value is zero (natural numbers)
                 int value, power; // value: the digit value, power: power value we need to multiply the digit
                 char temp_char; // each char in the string is a digit
-                //להוריד רווחים מההתחלה והסוף!!!
 
                 // First let's see if we are receiving a valid number in decimal base, without 'b'
                 // We will use the function "How_Many_Times_Char_In_Str": the function receive a String + Char,and Calculates (with recursion) how many times the char appears in the String (we preform the function in a lecture with Assaf)
@@ -46,7 +45,7 @@ public class Ex1 {
                         // We will convert the number from char to int - using the function "getNumericValue":
                         // which use Unicode table to convert a char to numeric value - then the function interprets the value so that it matches the representation of chars in the bases we know (in hexadecimal for exemple).
                         value = Character.getNumericValue(temp_char);
-                        power = (int) Math.pow (10,i); // Calculating the power of each digit in a number - according to it's position
+                        power = (int) Math.pow (10,i); // Calculating the power of each digit in a number - 10 power the digit location.
 
                         ans += value*power; // Adding the sum of the digit.
                     }
@@ -64,15 +63,18 @@ public class Ex1 {
                 // let's manually convert the String to Int, via a loop:
                 for (int i = 0; i <  str_Numbers[0].length(); i++)
                 {
-                    temp_char = str_Numbers[0].charAt(str_Numbers[0].length() -i-1);
-                    value = Character.getNumericValue(temp_char);
-                    power = (int) Math.pow (old_Base,i);
+                    temp_char = str_Numbers[0].charAt(str_Numbers[0].length() -i-1); // Extract the right digit each time.
+                    value = Character.getNumericValue(temp_char); //get the char in to int value - using 'getNumericValue'.
+                    power = (int) Math.pow (old_Base,i); // Calculating the power of each digit in a number - the original base**power the digit location.
 
-                    ans += power*value;
+
+                    ans += power*value; // adding the result into the sum;
                 }
             }
-            return ans;
+            return ans; // After we have finished converting the Sting to int - we will return the number.
         }
+
+
         /**
          * This static function checks if the given String (g) is in a valid "number" format.
          * @param a a String representing a number
