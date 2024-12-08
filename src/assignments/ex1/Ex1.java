@@ -186,13 +186,21 @@ public class Ex1 {
             return ans;
         }
 
-        //עשינו בשיעור על רקורסיה - אחלה דבר לכותב את התקן של הפונקציה כמו שצריך
+        /**
+         * This static function sums how many times a certain char appears in a string - Using recursion.
+         * We learned to do this function in a lecture with Assaf.
+         * @param str a String.
+         * @param c a char.
+         * @return the number of times the char appears in the String.
+         */
         public static int How_Many_Times_Char_In_Str (String str, char c)
         {
-            if (str.isEmpty()) return 0;
+            if (str.isEmpty()) return 0; // We have no char left to check in the string.
 
+            // the first char in the String Matches the desired char: adding 1 to the sum, and moving to the next char.
             if (str.charAt(0) == c) return (How_Many_Times_Char_In_Str(str.substring(1), c) + 1);
 
+            // the char isn't is the char we are searching for, but let's continue checking the next char's in the string
             return (How_Many_Times_Char_In_Str(str.substring(1), c));
         }
 }
