@@ -9,24 +9,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class Ex1Test {
         @Test
+        //I left the original tests, and added my own to avoid confusion.:
         void computeNumberTest() {
-
+            //original testing:
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
+            String s10 = "1011bA";
+            v = Ex1.number2Int(s10);
+            s2 = Ex1.int2Number(v,2);
+            int v2 = Ex1.number2Int(s2);
+            assertEquals(v,v2);
+            assertTrue(Ex1.equals(s10,s2));
 
-            s2 = "0b2";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,0);
-
-            s2 = "1011b2";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,11);
-
-            s2 = "18b2";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,-1);
-
+            //my testing:
+            String arrS [][] = {{"1011b2", "11"} , {"0b2", "0"} , {"1011b2", "11"}
+                    , {"18b2", "-1"} };
 
             s2 = "b12";
             v = Ex1.number2Int(s2);
@@ -44,8 +42,6 @@ public class Ex1Test {
             assertEquals(v,v2);
             assertTrue(Ex1.equals(s10,"1011bA"));
         }
-
-
 
         @Test
         void isBasisNumberTest() {
