@@ -146,22 +146,10 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
-            //quit check
-//            if (n1.equals("quit"))
-//            {
-//                for (int i =0; i <n1.length(); i++)
-//                {
-//                    // if the numbers are in the same decimal value - return true
-//                    if (n1.charAt(i) != n2.charAt(i)) return false;
-//                }
-//            }
+            // convert the numbers to decimal value (int) and then check if the value is equal (format inspection is included)
+            if (number2Int(n1) == number2Int(n2)) return true;
 
-            //making sure that n1,n2 are in valid format
-            if (isNumber(n1) && isNumber(n2)) {
-                //convert the numbers to decimal value (int) and then check if the value is equal
-                if (number2Int(n1) == number2Int(n2)) return true;
-            }
-            // in case of not equal value or invalid num format - return false
+            // in case of not equal value or invalid num format - return false:
             return false;
         }
 
@@ -174,16 +162,17 @@ public class Ex1 {
          *
          */
         public static int maxIndex(String[] arr) {
-            int ans = 0;
+            int ans = 0; // first index is the bigger until a higher number than the number at index 0 is found
 
+            // we will loop through all the numbers in the array
             for (int i = 1; i < arr.length; i++)
             {
-                if (number2Int(arr[ans]) < number2Int(arr[i]))
+                if (number2Int(arr[ans]) < number2Int(arr[i])) // A higher number than the highest number we have had so far
                 {
-                    ans = i;
+                    ans = i; // let's save the index of the higher number
                 }
             }
-            return ans;
+            return ans; // returns the index of the higher number
         }
 
         /**
