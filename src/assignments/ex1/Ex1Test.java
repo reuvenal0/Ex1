@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Ex1Test {
         @Test
         void computeNumberTest() {
+
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
