@@ -92,7 +92,7 @@ public class Ex1 {
             if ((howb == 0) && (a.matches("^[0-9]+$"))) return true; // valid decimal number!
 
 
-            // The second situation is that we have a 'b' that separates the number from the base, we will make sure that the String contains only: 0-9 digits, 'b' lowercase, "A-G" uppercase.
+            // The second situation is that we have a 'b' that separates the number from the base, we will make sure that the String contains only: 0-9 digits, 'b' lower case, "A-G" upper case.
             // Any other chars invalidates the string (e.g: space , G+ latter, or other special character)
             // aging we will use matches function with regex:
             if (!a.matches("^[bA-G0-9]+$")) return false; //we got an invalid char
@@ -136,14 +136,21 @@ public class Ex1 {
          * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
          */
         public static String int2Number(int num, int base) {
-            // add your code here
-            // נשתמש בtoString
             String ans = "";
+
+            // first let's make sure we get a number and base within the valid range:
             if ((num >= 0) && (base > 1) && (base < 17))
             {
+                // to convert the number to a string, we will use the function "toString" which convert a number to a string according to the specified base.
+                // We will use this function and not perform manual division (as we multiplied with the function "number2int") - Ilan confirmed me to use this function if I know to use it.
+                // "toString" receives an number (int decimal base) and a base (also represented in decimal base):
                 ans = Integer.toString(num, base).toUpperCase();
+
+                // in all bases except decimal, we will add the base (represented in 17 base: so we have 'G' digit) after the number itself with 'b' serpenting:
                 if (base != 10)
                 {
+                    // We will convert the number to a char using "forDigit" function, which is essentially the opposite of the "getNumericValue" function we used before.
+                    // also, we need to convert the letters to Upper Case if necessary.
                     ans += "b" + toUpperCase(Character.forDigit(base,17));
                 }
             }
