@@ -141,7 +141,7 @@ public class Ex1 {
             // first let's make sure we get a number and base within the valid range:
             if ((num >= 0) && (base > 1) && (base < 17))
             {
-                // we got valid number and base:
+                // we got valid number and base, let's reboot String ans as empty:
                 ans = "";
 
                 // to convert the number to a string, we will use the function "toString" which convert a number to a string according to the specified base.
@@ -167,6 +167,7 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
+            // null is invalid number:
             if (n1 == null || n2 == null) return false;
 
             // convert the numbers to decimal value (int) and then check if the value is equal (format inspection is included)
