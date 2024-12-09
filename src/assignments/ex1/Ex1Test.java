@@ -15,6 +15,7 @@ public class Ex1Test {
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
+
             String s10 = "1011bA";
             v = Ex1.number2Int(s10);
             s2 = Ex1.int2Number(v,2);
@@ -23,24 +24,12 @@ public class Ex1Test {
             assertTrue(Ex1.equals(s10,s2));
 
             //my testing:
-            String arrS [][] = {{"1011b2", "11"} , {"0b2", "0"} , {"1011b2", "11"}
-                    , {"18b2", "-1"} };
+            String arrS [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"18b2", "-1"} , {"153b7", "87"}, {"101", "101"},{"2001bA", "2001"}};
 
-            s2 = "b12";
-            v = Ex1.number2Int(s2);
-            assertEquals(v,-1);
-
-            int num = 1011, base = 2;
-            s2 = Ex1.int2Number(num,base);
-            assertEquals(s2,"1111110011b2");
-
-
-            String s10 = "1011bA"; //number in base 10
-            v = Ex1.number2Int(s10); //get number to int
-            s2 = Ex1.int2Number(v,2); //convert number to base 2
-            int v2 = Ex1.number2Int(s2); // convert number to base 10
-            assertEquals(v,v2);
-            assertTrue(Ex1.equals(s10,"1011bA"));
+            for (int i = 0; i < arrS.length; i++)
+            {
+                assertTrue(Ex1.equals(arrS[i][0], arrS[i][1]));
+            }
         }
 
         @Test
