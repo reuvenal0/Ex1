@@ -37,12 +37,13 @@ public class Ex1Test {
         void isBasisNumberTest() {
             // added a few of me own Strings...
 
-            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA", "00b2", "0000bG", "DDAbG"};
+            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA", "00b2", "0000bG", "DDAbG", "1000000000000000b2"};
             for (int i=0;i<good.length; i++) {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not", "10b 2", "4 04b5", "GGbG", "ABbJ", "ABb17", "0b1"};
+
+            String[] not_good = {" ", "", "-404bB" ,"88.4b9" ,"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not","12bAbG","10b 2", "4 04b5", "ABbJ", "ABb16", "0b1"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
@@ -50,7 +51,8 @@ public class Ex1Test {
         }
         @Test
         void int2NumberTest() {
-            String thirdTest [][] = {{"0b2", "0", "2bG"} , {"20CbE", "404", "EbG"}, {"153b7", "87" , "7bG"}, {"101", "101", "AbG"},{"AbC" , "10", "CbG"} ,{"15678b9", "10763", "9bG"}};
+            // נתשמש בפונקציה אחרת למה בסיס G לא יעבוד
+            String thirdTest [][] = {{"0b2", "0", "2bG"} , {"20CbE", "404", "EbG"}, {"153b7", "87" , "7bG"}, {"101", "101", "AbG"},{"AbC" , "10", "CbG"} ,{"15678b9", "10763", "9bG"} , {"f", "15", "GbG"}};
             int value, base;
             String temp;
             for (int i = 0; i < thirdTest.length; i++)
@@ -66,10 +68,15 @@ public class Ex1Test {
 
         @Test
         void maxIndexTest() {
-            String[] NumArr = {"1" ,"123b6", "ABbG", "0bA", "1011b2", "1011bA", "404", "-2001"};
+            String[] NumArr1 = {"1" ,"123b6", "ABbG", "0bA", "1011b2", "1011bA", "404", "-2001"};
 
-            int max = Ex1.maxIndex(NumArr);
-            assertEquals(NumArr[max], "1011bA");
+            int max = Ex1.maxIndex(NumArr1);
+            assertEquals(NumArr1[max], "1011bA");
+
+            //let's try with invalid numbers:
+            String[] NumArr2 = {"100b2", "abG", "10b3", "-10bC"};
+            max = Ex1.maxIndex(NumArr2);
+            assertEquals(NumArr2[max], "100b2");
         }
 
         @Test
@@ -81,7 +88,8 @@ public class Ex1Test {
                 assertTrue(ok);
             }
 
-            String [] arr2 = {"101", "200bG", "56b7", "88bF" , "2001bA"};
+            //not equals numbers, encluding some invalid String
+            String [] arr2 = {"101", "200bG", "56b7", "88bF", "10 bA", "2001bA" , "123bZ"};
             for (int i = 1; i < arr2.length; i++)
             {
                 boolean not_ok = Ex1.equals(arr2[i - 1], arr2[i]);
@@ -90,11 +98,15 @@ public class Ex1Test {
         }
 
     @Test
-    void chars_test() {
-//        String[] NumArr = {"1" ,"123b6", "ABbG", "0bA", "1011b2", "1011bA", "404", "-2001"};
-//
-//        int max = Ex1.maxIndex(NumArr);
-//        assertEquals(NumArr[max], "1011bA");
+    void how_much_chars_test() {
+        String[] ArrChars_0 = {" ", "", "abts", "  test  "};
+        String[] ArrChars_1 = {"b", "abct", "   b   t", "  one b  "};
+        String[] ArrChars_2 = {"bb", "ttbbtft", "   bb  jkjk", "  one c  "};
+
+        /// to finish
+
+        int max = Ex1.How_Many_Times_Char_In_Str(ArrChars);
+        assertEquals(ArrChars[max], "1011bA");
     }
 
 
