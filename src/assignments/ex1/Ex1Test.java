@@ -24,14 +24,18 @@ public class Ex1Test {
             assertTrue(Ex1.equals(s10,s2));
 
             //my testing:
-            String FirstTest [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"153b7", "87"}, {"101", "101"},{"AbC" , "10"},{null, null}};
+            String FirstTest [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"153b7", "87"}, {"101", "101"},{"AbC" , "10"} , {" 5 4b2" , "-1"}};
 
             for (int i = 0; i < FirstTest.length; i++)
             {
                 //testing "number2Int" using "equals" function:
-                System.out.println(FirstTest[i][0]);
                 assertTrue(Ex1.equals(FirstTest[i][0], FirstTest[i][1]));
             }
+
+            // let's see if null is -1 as all invalid Strings:
+            s2 = null;
+            v = Ex1.number2Int(s2);
+            assertEquals(v,-1);
         }
 
         @Test
