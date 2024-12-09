@@ -24,22 +24,32 @@ public class Ex1Test {
             assertTrue(Ex1.equals(s10,s2));
 
             //my testing:
-            String arrS [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"18b2", "-1"} , {"153b7", "87"}, {"101", "101"},{"2001bA", "2001"}};
+            String arrS [][] = {{"0b2", "0", "2bG"} , {"20CbE", "404", "EbG"}, {"153b7", "87" , "7bG"}, {"101", "101", "AbG"},{"AbC" , "10", "CbG"}};
 
+            int value, base;
+            String temp;
             for (int i = 0; i < arrS.length; i++)
             {
+                //testing "number2Int" using "equals" function:
                 assertTrue(Ex1.equals(arrS[i][0], arrS[i][1]));
+
+                // testing "int2number"
+                v = Ex1.number2Int(arrS[i][1]); //decimal number form string to int
+                v2 = Ex1.number2Int(arrS[i][2]); //original base form string to int
+                s2 = Ex1.int2Number(v,v2); // number in original base (str)
+
+                assertEquals(arrS[i][0], s2);
             }
         }
 
         @Test
         void isBasisNumberTest() {
-            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA"};
+            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA", "1011b2", "1011bA", "00b2", "0000bG", "DDAbG"};
             for (int i=0;i<good.length; i++) {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
             }
-            String[] not_good = {"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2"};
+            String[] not_good = {"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not", "10b 2", "4 04b5", "GGbG", "ABbJ", "ABb17", "0b1"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
