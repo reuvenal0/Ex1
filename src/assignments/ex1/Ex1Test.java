@@ -48,7 +48,7 @@ public class Ex1Test {
                 assertTrue(ok);
             }
 
-            String[] not_good = {null, " ", "", "-404bB" ,"88.4b9" ,"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not","12bAbG","10b 2", "4 04b5", "ABbJ", "ABb16", "0b1"};
+            String[] not_good = {null, " ", "", "b" , "-404bB" ,"88.4b9" ,"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not","12bAbG","10b 2", "4 04b5", "ABbJ", "ABb16", "0b1"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
@@ -58,7 +58,7 @@ public class Ex1Test {
         void int2NumberTest() {
             // נתשמש בפונקציה אחרת למה בסיס G לא יעבוד
             //{"f", "15", "GbG"}
-            String thirdTest [][] = {{"0b2", "0", "2bG"} , {"20CbE", "404", "EbG"}, {"153b7", "87" , "7bG"}, {"101", "101", "AbG"},{"AbC" , "10", "CbG"} ,{"15678b9", "10763", "9bG"}};
+            String thirdTest [][] = {{"0b2", "0", "2bG"} , {"20CbE", "404", "EbG"}, {"153b7", "87" , "7bG"}, {"101", "101", "AbG"},{"AbC" , "10", "CbG"} ,{"15678b9", "10763", "9bG"}, {"-1" , "-1000", "2"}, {"-1", "54.3" , "1"}};
             int value, base;
             String temp;
             for (int i = 0; i < thirdTest.length; i++)

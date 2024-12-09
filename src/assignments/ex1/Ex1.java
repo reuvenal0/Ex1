@@ -136,11 +136,14 @@ public class Ex1 {
          * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
          */
         public static String int2Number(int num, int base) {
-            String ans = "";
+            String ans = "-1"; // for invalid number or base
 
             // first let's make sure we get a number and base within the valid range:
             if ((num >= 0) && (base > 1) && (base < 17))
             {
+                // we got valid number and base:
+                ans = "";
+
                 // to convert the number to a string, we will use the function "toString" which convert a number to a string according to the specified base.
                 // We will use this function and not perform manual division (as we multiplied with the function "number2int") - Ilan confirmed me to use this function if I know to use it.
                 // "toString" receives an number (int decimal base) and a base (also represented in decimal base):
