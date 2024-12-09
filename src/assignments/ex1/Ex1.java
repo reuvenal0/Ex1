@@ -82,7 +82,7 @@ public class Ex1 {
          */
         public static boolean isNumber(String a) {
             // an empty String isn't valid:
-            if (a.isEmpty()) return false;
+            if (a == null || a.isEmpty()) return false;
 
             // first let's see how much 'b' chars we got in the String:
             int howb = How_Many_Times_Char_In_Str(a, 'b');
@@ -164,6 +164,8 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
+            if (n1 == null || n2 == null) return false;
+
             // convert the numbers to decimal value (int) and then check if the value is equal (format inspection is included)
             if (number2Int(n1) == number2Int(n2)) return true;
 
@@ -202,7 +204,7 @@ public class Ex1 {
          */
         public static int How_Many_Times_Char_In_Str (String str, char c)
         {
-            if (str.isEmpty()) return 0; // We have no char left to check in the string.
+            if (str == null || str.isEmpty()) return 0; // We have no char left to check in the string.
 
             // the first char in the String Matches the desired char: adding 1 to the sum, and moving to the next char.
             if (str.charAt(0) == c) return (How_Many_Times_Char_In_Str(str.substring(1), c) + 1);
