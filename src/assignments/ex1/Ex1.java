@@ -81,39 +81,50 @@ public class Ex1 {
          * @return true iff the given String is in a number format
          */
         public static boolean isNumber(String a) {
-            //string a == null is not valid:
+            // an empty String isn't valid:
             if (a.isEmpty()) return false;
 
-            // first let's see if we got a 'b' char in String:
+            // first let's see how much 'b' chars we got in the String:
             int howb = How_Many_Times_Char_In_Str(a, 'b');
 
-            // if there is no 'b' but the string is only  0-9 digit (without invalid chars) so we are in base 10 and it's all got
-            if ((howb == 0) && (a.matches("^[0-9]+$"))) return true;
+            // if there is no 'b' but the string is only 0-9 digit (without invalid chars) so we are in base 10 and it's all good:
+            // let's use matches function on the String, with regex that check from the beginning of the string to it's end, that only 0-9 digit appear (regardless of the number of times the digit appears).
+            if ((howb == 0) && (a.matches("^[0-9]+$"))) return true; // valid decimal number!
 
-            // if we got an invalid char - let's use regular expression (regex):
-            if (!a.matches("^[bA-G0-9]+$")) return false;
 
-            // more then one 'b' is not good:
+            // The second situation is that we have a 'b' that separates the number from the base, we will make sure that the String contains only: 0-9 digits, 'b' lowercase, "A-G" uppercase.
+            // Any other chars invalidates the string (e.g: space , G+ latter, or other special character)
+            // aging we will use matches function with regex:
+            if (!a.matches("^[bA-G0-9]+$")) return false; //we got an invalid char
+
+            // more then one 'b' isn't valid:
             if (howb < 1) return false;
 
-            // split the two numbers:
+            // now we have a String with obe 'b', let's split the number form the base, and save them into Separate cells in an array
             String [] str_Numbers = a.split("b");
+            // str_numbers [0] - the number itself.
+            // str_number [1] - the original base.
+
+            // if we were unable to separate into two different strings, it means that the string isn't valid:
             if (str_Numbers.length != 2) return false;
-            //if the number is empty
+            //if the number is empty we got an invalid String:
             if (str_Numbers[0].isEmpty()) return false;
 
-
+            // the original base is represented by only one character (in base 17)
             if (str_Numbers[1].length() != 1) return false;
 
-            char base = str_Numbers[1].charAt(0);
-            int base_value = Character.getNumericValue(base);
-            if (base_value < 2 || base_value > 16) return false;
+            char base = str_Numbers[1].charAt(0); // extracting the original base char.
+            int base_value = Character.getNumericValue(base); // converting the original base to int value, using "getNumericValue" function aging (used in the previous function)
 
+            if (base_value < 2 || base_value > 16) return false; // valid base is 2 to 16
+
+            // now we need to make sure that all the digits in the number contain only digits that are in the original base - otherwise the number is invalid:
             for (int i = 0; i < str_Numbers[0].length(); i++)
             {
                 if(Character.getNumericValue(str_Numbers[0].charAt(i)) >= base_value) return false;
             }
-            return true;
+
+            return true; // valid number!
         }
 
         /**
