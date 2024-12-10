@@ -13,7 +13,6 @@ public class Ex1Test {
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
-
             String s10 = "1011bA";
             v = Ex1.number2Int(s10);
             s2 = Ex1.int2Number(v,2);
@@ -21,7 +20,8 @@ public class Ex1Test {
             assertEquals(v,v2);
             assertTrue(Ex1.equals(s10,s2));
 
-            //my testing:
+            // My testing - Let's delve into each function separately (this way we can set up extreme cases):
+            // First let's test number2int
             String SecondTest [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"153b7", "87"}, {"101", "101"},{"AbC" , "10"}};
 
             for (int i = 0; i < SecondTest.length; i++)
@@ -37,6 +37,22 @@ public class Ex1Test {
             {
                 v = Ex1.number2Int(ThirdTest[i]);
                 assertEquals(v,-1);
+            }
+
+            /* Now let's test int2number:
+            let's build three arrays -
+            1) int DecValues - some decimal values
+            2) int NewBases - the bases we want to convert to
+            3) String ArrNewNumbers - the desired result according to number format
+            */
+            int DecValues [] = {0,17,87,101,890,404,193056,65441,2001};
+            int NewBases [] = {2,2,7,10,10,14,14,16,16};
+            String ArrNewNumbers [] = {"0b2", "10001b2" , "153b7", "101", "890" ,"20CbE" ,"504DAbE" , "FFA1bG", "7D1bG"};
+
+            for (int i =0; i < DecValues.length; i++)
+            {
+                String TempNewNum = Ex1.int2Number(DecValues[i], NewBases[i]);
+                assertEquals(TempNewNum,ArrNewNumbers[i]);
             }
         }
 
@@ -54,23 +70,6 @@ public class Ex1Test {
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
-            }
-        }
-        @Test
-        void int2NumberTest() {
-            /* let's build three arrays:
-            1) int DecValues - some decimal values
-            2) int NewBases - the bases we want to convert to
-            3) String ArrNewNumbers - the desired result according to number format
-            */
-            int DecValues [] = {0,17,87,101,890,404,193056,65441,2001};
-            int NewBases [] = {2,2,7,10,10,14,14,16,16};
-            String ArrNewNumbers [] = {"0b2", "10001b2" , "153b7", "101", "890" ,"20CbE" ,"504DAbE" , "FFA1bG", "7D1bG"};
-
-            for (int i =0; i < DecValues.length; i++)
-            {
-                String TempNewNum = Ex1.int2Number(DecValues[i], NewBases[i]);
-                assertEquals(TempNewNum,ArrNewNumbers[i]);
             }
         }
 
@@ -108,20 +107,20 @@ public class Ex1Test {
             }
         }
 
-    @Test
-    void how_much_chars_test() {
-        // let's see if "How_Many_Times_Char_In_Str" knows how to correctly count how many times the char is present in a string:
+        @Test
+        void how_much_chars_test() {
+            // let's see if "How_Many_Times_Char_In_Str" knows how to correctly count how many times the char is present in a string:
 
-        char b = 'b'; // we will count how much 'b' we got in some Strings
+            char b = 'b'; // we will count how much 'b' we got in some Strings
 
-        // let's creat a two dimensional array: each line is the number of times 'b' is present in an String
-        // [i][j] - so that i is the number of time 'b' is present: 0,1,2.
-        String [][] Arr1 = {{null, " ", "", "ats", "  test  "}, {"b", "abct", "   b   t", " ^^&%$ one b  " , "bhjhjhj"} , {"bb", "ttbbtft", " ^^&  bb  jkjk", " b two  b  ", "bhhhjdb"}};
-        for (int i = 0; i < Arr1.length; i++) {
-            for (int j = 0; j < Arr1[i].length; j++) {
-                int count = Ex1.How_Many_Times_Char_In_Str(Arr1[i][j], b);
-                assertEquals(count,i);
+            // let's creat a two dimensional array: each line is the number of times 'b' is present in an String
+            // [i][j] - so that i is the number of time 'b' is present: 0,1,2.
+            String [][] Arr1 = {{null, " ", "", "ats", "  test  "}, {"b", "abct", "   b   t", " ^^&%$ one b  " , "bhjhjhj"} , {"bb", "ttbbtft", " ^^&  bb  jkjk", " b two  b  ", "bhhhjdb"}};
+            for (int i = 0; i < Arr1.length; i++) {
+                for (int j = 0; j < Arr1[i].length; j++) {
+                    int count = Ex1.How_Many_Times_Char_In_Str(Arr1[i][j], b);
+                    assertEquals(count,i);
+                }
             }
         }
-    }
 }
