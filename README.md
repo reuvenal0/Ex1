@@ -13,7 +13,7 @@ After this, the application prints the largest number among the numbers that use
 
 
 ## Number format
-Numbers are represented as `<number>b<base>`, for example:
+Numbers are represented as `<number>'b'<base>`, for example:
 - `135bA` ('135' in decimal base)
 - `100111b2` ('100111' binary base)
 - `12345b6` ('12345' in base 6)
@@ -28,7 +28,11 @@ Any string is not considered a valid number if it does not follow the format. Fo
 - `A223C` - no 'b'.
 - `101b` - no base
 - `-404bB` - negative number.
-
+- `10.5` - not an natural number.
+- `b2` - no number only number and 'b'.
+- `33b8&^` - invalid chars.
+- - `404b A` - space is invalid.
+  
     And more...
 
 
@@ -50,9 +54,8 @@ Any string is not considered a valid number if it does not follow the format. Fo
 ## JUnit tests
 Comprehensive JUnit tests are provided in `Ex1Test.java`:
 
-- `computeNumberTest` - tests `number2Int`.
+- `computeNumberTest` - tests `number2Int` and `int2Number`. 
 - `isBasisNumberTest` - tests `isNumber`.
-- `int2NumberTest` - tests `int2Number`.
 - `maxIndexTest` - tests `maxIndex`.
 - `isEqualsTest` - tests `equals`.
 - `how_much_chars_test` - tests `How_Many_Times_Char_In_Str`.
