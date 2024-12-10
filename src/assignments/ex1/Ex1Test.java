@@ -3,10 +3,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * This JUnit class represents a very partial test class for Ex1.
- * Make sure you complete all the needed JUnits
- */
+/** This JUnit class represents a very partial test class for Ex1.*/
+
 public class Ex1Test {
         @Test
         //I left the original tests, and added my own to avoid confusion.:
@@ -52,7 +50,7 @@ public class Ex1Test {
                 assertTrue(ok);
             }
 
-            String[] not_good = {null, " ", "", "b" , "-404bB" ,"88.4b9" ,"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not","12bAbG","10b 2", "4 04b5", "ABbJ", "ABb16", "0b1"};
+            String[] not_good = {null, " ", "", "b" ,"A223C", "323G" ,"-404bB" ,"88.4b9" ,"101b", "b2", "2b2", "1G3bG", " BbG", "0bbA", "abB", "!@b2", "A", "1bb2" , "1907b2", "not","12bAbG","10b 2", "4 04b5", "ABbJ", "ABb16", "0b1"};
             for(int i=0;i<not_good.length;i=i+1) {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);

@@ -3,14 +3,11 @@ import java.sql.Array;
 import java.util.Scanner;
 import java.util.Arrays;
 
-/**
- * Intro2CS, Ex1 - very basic "main template"
- * Make sure your implementation of this main performs as the Ex1Sol.jar solution implement all needed functions.
- *
- */
+/** Intro2CS, Ex1 */
+
 public class Ex1Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // Scanner so we can get input form the user
 
         String num1 = "", num2="", quit = "quit";
 
@@ -34,6 +31,7 @@ public class Ex1Main {
 
                 if (!validNum1) // in case of invalid input to num1:
                 {
+                    // error MSG print
                     System.out.println("ERR: num1 is in the wrong format! (" + num1+ ")");
                 }
 
@@ -42,7 +40,7 @@ public class Ex1Main {
                 {
                     // moving on to asking the user second number:
 
-                    //msg print to the user
+                    //MSG print to the user
                     System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
 
                     // getting Second number form the user: num2
@@ -60,6 +58,8 @@ public class Ex1Main {
                     if (!validNum2) // in case of invalid input to num2:
                     {
                         // let's restart the loop and ask again for first number, so let's stop this loop iteration and start an new loop iteration:
+
+                        // error MSG print
                         System.out.println("ERR: num2 is in the wrong format! (" + num2+ ")");
                         continue;
                     }
@@ -99,6 +99,7 @@ public class Ex1Main {
                 }
             }
         }
+
         //out of the loop, so:
         System.out.println("quiting now...");
         //the program ends.

@@ -12,7 +12,6 @@ import static java.lang.Character.toUpperCase;
  * <number><b><base> e.g., “135bA” (i.e., “135”, as 10 is the default base), “100111b2”, “12345b6”,”012b5”, “123bG”, “EFbG”.
  * The following are NOT in the format (not a valid number):
  * “b2”, “0b1”, “123b”, “1234b11”, “3b3”, “-3b5”, “3 b4”, “GbG”, "", null,
- * You should implement the following static functions:
  */
 public class Ex1 {
         /**
@@ -45,8 +44,10 @@ public class Ex1 {
                         // We will convert the number from char to int - using the function "getNumericValue":
                         // which use Unicode table to convert a char to numeric value - then the function interprets the value so that it matches the representation of chars in the bases we know (in hexadecimal for exemple).
                         value = Character.getNumericValue(temp_char);
-                        power = (int) Math.pow (10,i); // Calculating the power of each digit in a number - 10 power the digit location.
 
+                        // Calculating the power of each digit in a number - 10 power the digit location
+                        // using math.pow function that receives a value and power (int\double) and return a double! so we need to convert back to int.
+                        power = (int) Math.pow (10,i);
                         ans += value*power; // Adding the sum of the digit.
                     }
                     return ans; // After we have finished converting the Sting to int - we will return the number.
@@ -65,7 +66,7 @@ public class Ex1 {
                 {
                     temp_char = str_Numbers[0].charAt(str_Numbers[0].length() -i-1); // Extract the right digit each time.
                     value = Character.getNumericValue(temp_char); //get the char in to int value - using 'getNumericValue'.
-                    power = (int) Math.pow (old_Base,i); // Calculating the power of each digit in a number - the original base**power the digit location.
+                    power = (int) Math.pow (old_Base,i); // Calculating the power of each digit in a number - the original base**power the digit location. using pow function again.
 
 
                     ans += power*value; // adding the result into the sum;
@@ -84,21 +85,20 @@ public class Ex1 {
             // an empty String isn't valid:
             if (a == null || a.isEmpty()) return false;
 
-            // first let's see how much 'b' chars we got in the String:
-            int howb = How_Many_Times_Char_In_Str(a, 'b');
-
-            // if there is no 'b' but the string is only 0-9 digit (without invalid chars) so we are in base 10 and it's all good:
+            // if the string is only 0-9 digit (without invalid chars) so we are in base 10 and it's all good:
             // let's use matches function on the String, with regex that check from the beginning of the string to it's end, that only 0-9 digit appear (regardless of the number of times the digit appears).
-            if ((howb == 0) && (a.matches("^[0-9]+$"))) return true; // valid decimal number!
-
+            if (a.matches("^[0-9]+$")) return true; // valid decimal number!
 
             // The second situation is that we have a 'b' that separates the number from the base, we will make sure that the String contains only: 0-9 digits, 'b' lower case, "A-G" upper case.
             // Any other chars invalidates the string (e.g: space , G+ latter, or other special character)
             // aging we will use matches function with regex:
             if (!a.matches("^[bA-G0-9]+$")) return false; //we got an invalid char
 
-            // more then one 'b' isn't valid:
-            if (howb < 1) return false;
+
+            // first let's see how much 'b' chars we got in the String:
+            int howb = How_Many_Times_Char_In_Str(a, 'b');
+            // the valid format is one 'b':
+            if (howb != 1) return false; // not valid
 
             // now we have a String with obe 'b', let's split the number form the base, and save them into Separate cells in an array
             String [] str_Numbers = a.split("b");
@@ -110,13 +110,13 @@ public class Ex1 {
             //if the number is empty we got an invalid String:
             if (str_Numbers[0].isEmpty()) return false;
 
-            // the original base is represented by only one character (in base 17)
+            // the original base is represented by only one character (in base 17, so we got 'G' representing 16)
             if (str_Numbers[1].length() != 1) return false;
 
             char base = str_Numbers[1].charAt(0); // extracting the original base char.
             int base_value = Character.getNumericValue(base); // converting the original base to int value, using "getNumericValue" function aging (used in the previous function)
 
-            if (base_value < 2 || base_value > 16) return false; // valid base is 2 to 16
+            if (base_value < 2 || base_value > 16) return false; // valid base is between 2 to 16
 
             // now we need to make sure that all the digits in the number contain only digits that are in the original base - otherwise the number is invalid:
             for (int i = 0; i < str_Numbers[0].length(); i++)
@@ -164,7 +164,7 @@ public class Ex1 {
          * Checks if the two numbers have the same value.
          * @param n1 first number
          * @param n2 second number
-         * @return true iff the two numbers have the same values.
+         * @return true if the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
             // null is invalid number, so it can't be equal to any number (just like "3b2" isn't equal to "-1"):
