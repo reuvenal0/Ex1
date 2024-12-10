@@ -13,6 +13,8 @@ import static java.lang.Character.toUpperCase;
  * The following are NOT in the format (not a valid number):
  * “b2”, “0b1”, “123b”, “1234b11”, “3b3”, “-3b5”, “3 b4”, “GbG”, "", null,
  * You should implement the following static functions:
+ *
+ * test
  */
 public class Ex1 {
         /**
@@ -167,7 +169,7 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
-            // null is invalid number, so it can't be equal to any number (just like "3b2" isn't equal to "-1" any number ):
+            // null is invalid number, so it can't be equal to any number (just like "3b2" isn't equal to "-1"):
             if (n1 == null || n2 == null || !isNumber(n1) || !isNumber(n2)) return false;
 
             // convert the numbers to decimal value (int) and then check if the value is equal (format inspection is included)
