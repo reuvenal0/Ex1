@@ -42,7 +42,7 @@ Any string is not considered a valid number if it does not follow the format. Fo
 3. Insert formatted first number, second number and desired output base (in decimal base).
 
 
-## Functions in Ex1
+## Functions in Ex1.java
 - `number2Int(String num)`: Converts a formatted number string to decimal
 - `isNumber(String a)`: Validates if number is in the format
 - `int2Number(int num, int base)`: Converts decimal number to specified base
