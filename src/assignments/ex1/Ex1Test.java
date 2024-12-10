@@ -94,6 +94,8 @@ public class Ex1Test {
                 assertTrue(ok);
             }
 
+            // נבדוק מספר לא תקין עם "-1"
+
             // Second array of numbers that are not equal numbers, including some invalid values:
             String [] arr2 = {"101", "200bG", "56b7", "88bF", "10 bA", "2001bA" , "123bZ", null};
             for (int i = 1; i < arr2.length; i++)
