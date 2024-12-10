@@ -29,7 +29,7 @@ Any string is not considered a valid number if it does not follow the format. Fo
 - `101b` - no base
 - `-404bB` - negative number.
 
-And more...
+    And more...
 
 
 ## Running the application
