@@ -60,19 +60,20 @@ public class Ex1Test {
         }
         @Test
         void int2NumberTest() {
-            // נתשמש בפונקציה אחרת למה בסיס G לא יעבוד
-            //{"f", "15", "GbG"}
-            String thirdTest [][] = {{"0b2", "0", "2bG"} , {"20CbE", "404", "EbG"}, {"153b7", "87" , "7bG"}, {"101", "101", "AbG"},{"AbC" , "10", "CbG"} ,{"15678b9", "10763", "9bG"}, {"-1" , "-1000", "2"}, {"-1", "54.3" , "1"}};
-            int value, base;
-            String temp;
-            for (int i = 0; i < thirdTest.length; i++)
-            {
-                // testing "int2number" using "number2int"
-                value = Ex1.number2Int(thirdTest[i][1]); //decimal number form string to int
-                base = Ex1.number2Int(thirdTest[i][2]); //original base form string to int
-                temp = Ex1.int2Number(value,base); // number in original base (str)
+            /* let's build three arrays:
+            1) int DecValues - some decimal values
+            2) int NewBases - the bases we want to convert to
+            3) String ArrNewNumbers - the desired result according to number format
+            */
 
-                assertEquals(thirdTest[i][0], temp);
+            int DecValues [] = {0,17,87,101,890,404,193056,65441,2001};
+            int NewBases [] = {2,2,7,10,10,14,14,16,16};
+            String ArrNewNumbers [] = {"0b2", "10001b2" , "153b7", "101", "890" ,"20CbE" ,"504DAbE" , "FFA1bG", "7D1bG"};
+
+            for (int i =0; i < DecValues.length; i++)
+            {
+                String TempNewNum = Ex1.int2Number(DecValues[i], NewBases[i]);
+                assertEquals(TempNewNum,ArrNewNumbers[i]);
             }
         }
 
