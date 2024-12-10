@@ -21,6 +21,8 @@ public class Ex1Test {
             assertEquals(v,v2);
             assertTrue(Ex1.equals(s10,s2));
 
+            //test
+
             // My testing - Let's delve into each function separately (this way we can set up extreme cases):
             // First let's test number2int
             String SecondTest [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"153b7", "87"}, {"101", "101"},{"AbC" , "10"}};

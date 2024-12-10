@@ -33,6 +33,8 @@ public class Ex1Main {
                 {
                     // error MSG print
                     System.out.println("ERR: num1 is in the wrong format! (" + num1+ ")");
+
+                    // and we'll go back to the beginning of the loop to try get num1 again
                 }
 
                 // in case of valid num1 input:
