@@ -28,6 +28,7 @@ Any string is not considered a valid number if it does not follow the format. Fo
 - `A223C` - no 'b'.
 - `101b` - no base
 - `-404bB` - negative number.
+And more...
 
 
 ## Running the application
