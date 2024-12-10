@@ -6,10 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /** This JUnit class represents a very partial test class for Ex1.*/
 
 public class Ex1Test {
+        //I left the original tests, and added my own to avoid confusion:
+
         @Test
-        //I left the original tests, and added my own to avoid confusion.:
         void computeNumberTest() {
-            //original testing:
+            //Original testing:
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
