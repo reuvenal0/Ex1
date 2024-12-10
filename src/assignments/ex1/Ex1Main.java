@@ -3,7 +3,7 @@ import java.sql.Array;
 import java.util.Scanner;
 import java.util.Arrays;
 
-/** Intro2CS, Ex1 */
+/** Intro2CS, Ex1 - Ex1Main.java */
 
 public class Ex1Main {
     public static void main(String[] args) {
