@@ -31,7 +31,7 @@ Any string is not considered a valid number if it does not follow the format. Fo
 - `10.5` - not an natural number.
 - `b2` - no number only number and 'b'.
 - `33b8&^` - invalid chars.
-- - `404b A` - space is invalid.
+- `404b A` - space is invalid.
   
     And more...
 
