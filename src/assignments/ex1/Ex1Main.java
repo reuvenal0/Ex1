@@ -14,24 +14,46 @@ public class Ex1Main {
 
         String num1 = "", num2="", quit = "quit";
 
-        while (!num1.equals(quit) && !num2.equals(quit)) {
+        //while the user didn't input "quit" - the program keeps on running, and asking user to input number
+        while (!num1.equals(quit) && !num2.equals(quit))
+        {
+            // print MSG for the user
             System.out.println();
             System.out.println("Ex1 class solution:");
             System.out.println("Enter a string as number#1 (or \"quit\" to end the program): ");
+
+            // getting First number form the user: num1
             num1 = sc.next();
             if (!num1.equals("quit"))
             {
-                boolean validNum1 = Ex1.isNumber(num1);
-                int num1_value = Ex1.number2Int(num1);
+                boolean validNum1 = Ex1.isNumber(num1); // check if num1 is in the valid format
+                int num1_value = Ex1.number2Int(num1); // converting num1 to decimal base (String to Int)
+
+                //let's print what is the status of num1: valid and decimal value
                 System.out.println("num1= " + num1 + " is number: "+ validNum1 + " , value: " + num1_value);
-                if (validNum1) {
+
+                // in case of invalid input:
+                if (!validNum1)
+                {
+                    System.out.println("ERR: num1 is in the wrong format! (" + num1+ ")");
+                }
+
+                // in case of valid num1 input:
+                else if (validNum1)
+                {
+                    //msg print to the user
                     System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
+
+                    // getting Second number form the user: num2
                     num2 = sc.next();
 
+                    // if the user input "quit", let's restart and ask again for first number,
+                    // so let's break this loop iteration:
                     if (num2.equals("quit")) break;
 
-                    boolean validNum2 = Ex1.isNumber(num2);
-                    int num2_value = Ex1.number2Int(num2);
+                    boolean validNum2 = Ex1.isNumber(num2); // check if num2 is in the valid format
+                    int num2_value = Ex1.number2Int(num2); // converting num2 to decimal base (String to Int)
+
 
                     System.out.println("num2= " + num2 + " is number: "+ validNum2 + " , value: " + num2_value);
 
@@ -61,10 +83,7 @@ public class Ex1Main {
                     int maxValueIndex = Ex1.maxIndex(allNumbersArr);
                     System.out.println("Max number over " + Arrays.toString(allNumbersArr) + " is: " + allNumbersArr[maxValueIndex]);
                 }
-                else if (!validNum1)
-                {
-                    System.out.println("ERR: num1 is in the wrong format! (" + num1+ ")");
-                }
+                else
             }
         }
         System.out.println("quiting now...");
