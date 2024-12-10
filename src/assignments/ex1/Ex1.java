@@ -200,7 +200,7 @@ public class Ex1 {
         }
 
         /**
-         * This static function sums how many times a certain char appears in a string - Using recursion.
+         * This static function counts how many times a certain char appears in a string - Using recursion.
          * We learned to do this function in a lecture with Assaf.
          * @param str a String.
          * @param c a char.
