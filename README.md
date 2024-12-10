@@ -1,8 +1,8 @@
 
 # Ex1 - solution for assignment 1
-this is a solution for Ex1 in Introduction to Computer Science in Java, 2025A - Ariel University, School of Computer Science.
+This is a solution for Ex1 in Introduction to Computer Science in Java, 2025A - Ariel University, School of Computer Science.
 
-the Java classs files will be found inside: "src/assignments/ex1"
+The Java classs files will be found inside: "src/assignments/ex1"
 
 ## Introduction
 The application accepts two numbers from the user, the numbers can be in different numeric bases between base 2 and base 16.
@@ -35,7 +35,7 @@ Any string is not considered a valid number if it does not follow the format. Fo
 ## Running the application
 1. Compile the Java files: `Ex1.java` and `Ex1Main.java`
 2. Run `Ex1Main.java`.
-3. insert formatted first number, second number and desired output base (in decimal base).
+3. Insert formatted first number, second number and desired output base (in decimal base).
 
 
 ## Functions in Ex1
