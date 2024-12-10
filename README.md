@@ -2,6 +2,8 @@
 # Ex1 - solution for assignment 1
 this is a solution for Ex1 in Introduction to Computer Science in Java, 2025A - Ariel University, School of Computer Science.
 
+the Java classs will be found inside: "src/assignments/ex1"
+
 ## Introduction
 The application accepts two numbers from the user, the numbers can be in different numeric bases between base 2 and base 16.
 
