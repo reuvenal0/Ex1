@@ -17,6 +17,7 @@ Numbers are represented as `<number>b<base>`, for exemple:
 - `135bA` ('135' in decimal base)
 - `100111b2` ('100111' binary base)
 - `12345b6` ('12345' in base 6)
+
 Or just Numbers in decimal base <number>,for exemple:
 - `404` ('404' in decimal base)
 - `20001` ('20001' in decimal base)
