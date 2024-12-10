@@ -65,7 +65,6 @@ public class Ex1Test {
             2) int NewBases - the bases we want to convert to
             3) String ArrNewNumbers - the desired result according to number format
             */
-
             int DecValues [] = {0,17,87,101,890,404,193056,65441,2001};
             int NewBases [] = {2,2,7,10,10,14,14,16,16};
             String ArrNewNumbers [] = {"0b2", "10001b2" , "153b7", "101", "890" ,"20CbE" ,"504DAbE" , "FFA1bG", "7D1bG"};

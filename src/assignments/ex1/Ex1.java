@@ -13,8 +13,6 @@ import static java.lang.Character.toUpperCase;
  * The following are NOT in the format (not a valid number):
  * “b2”, “0b1”, “123b”, “1234b11”, “3b3”, “-3b5”, “3 b4”, “GbG”, "", null,
  * You should implement the following static functions:
- *
- * test
  */
 public class Ex1 {
         /**
