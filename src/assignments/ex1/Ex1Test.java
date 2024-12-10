@@ -24,18 +24,22 @@ public class Ex1Test {
             assertTrue(Ex1.equals(s10,s2));
 
             //my testing:
-            String FirstTest [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"153b7", "87"}, {"101", "101"},{"AbC" , "10"} , {" 5 4b2" , "-1"}};
+            String SecondTest [][] = {{"0b2", "0"} , {"20CbE", "404"}, {"153b7", "87"}, {"101", "101"},{"AbC" , "10"}};
 
-            for (int i = 0; i < FirstTest.length; i++)
+            for (int i = 0; i < SecondTest.length; i++)
             {
                 //testing "number2Int" using "equals" function:
-                assertTrue(Ex1.equals(FirstTest[i][0], FirstTest[i][1]));
+                assertTrue(Ex1.equals(SecondTest[i][0], SecondTest[i][1]));
             }
 
-            // let's see if null is -1 as all invalid Strings:
-            s2 = null;
-            v = Ex1.number2Int(s2);
-            assertEquals(v,-1);
+            // let's see if invalid String is -1:
+            // our equal function can't work on invalid String, so we won't use it
+            String ThirdTest [] = {" 5 4b2", null , "-44b8" , "trt!@"};
+            for (int i = 0; i < ThirdTest.length; i++)
+            {
+                v = Ex1.number2Int(ThirdTest[i]);
+                assertEquals(v,-1);
+            }
         }
 
         @Test
@@ -94,7 +98,8 @@ public class Ex1Test {
                 assertTrue(ok);
             }
 
-            // נבדוק מספר לא תקין עם "-1"
+            // invalid number can't be equal to any number:
+            assertFalse(Ex1.equals("3b2", "-1"));
 
             // Second array of numbers that are not equal numbers, including some invalid values:
             String [] arr2 = {"101", "200bG", "56b7", "88bF", "10 bA", "2001bA" , "123bZ", null};

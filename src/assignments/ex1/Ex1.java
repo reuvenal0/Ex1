@@ -168,12 +168,12 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             // null is invalid number, so it can't be equal to any number (just like "3b2" isn't equal to "-1" any number ):
-            if (n1 == null || n2 == null) return false;
+            if (n1 == null || n2 == null || !isNumber(n1) || !isNumber(n2)) return false;
 
             // convert the numbers to decimal value (int) and then check if the value is equal (format inspection is included)
             if (number2Int(n1) == number2Int(n2)) return true;
 
-            // in case of not equal value or invalid num format - return false:
+            // in case of not equal value:
             return false;
         }
 
