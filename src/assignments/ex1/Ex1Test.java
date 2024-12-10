@@ -113,7 +113,9 @@ public class Ex1Test {
     @Test
     void how_much_chars_test() {
         // let's see if "How_Many_Times_Char_In_Str" knows how to correctly count how many times the char is present in a string:
+
         char b = 'b'; // we will count how much 'b' we got in some Strings
+
         // let's creat a two dimensional array: each line is the number of times 'b' is present in an String
         // [i][j] - so that i is the number of time 'b' is present: 0,1,2.
         String [][] Arr1 = {{null, " ", "", "ats", "  test  "}, {"b", "abct", "   b   t", " ^^&%$ one b  " , "bhjhjhj"} , {"bb", "ttbbtft", " ^^&  bb  jkjk", " b two  b  ", "bhhhjdb"}};
